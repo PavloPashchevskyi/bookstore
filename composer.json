@@ -1,7 +1,7 @@
 {
-    "name": "ppd/sais",
-    "description": "The simpliest artificial intelligence system",
-    "version": "0.0.3",
+    "name": "ppd/bookstore",
+    "description": "A feature-rich web Application for managing a list of books.",
+    "version": "0.0.1",
     "authors": [
         {
             "name": "Pavlo Pashchevskyi",
@@ -10,12 +10,17 @@
     ],
     "autoload": {
         "psr-4": {
-            "Application\\": "application"
+            "Application\\": "Application"
         }
     },
-    "keywords": ["simpliest", "simple", "artificial", "intelligence", "system", "sais"],
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "Tests"
+        }
+    },
+    "keywords": ["bookstore", "books", "book", "list", "manage", "managing"],
     "type": "project",
-    "require": {
-        "twig/twig": "~1.0"
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
     }
 }

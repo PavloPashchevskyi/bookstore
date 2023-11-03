@@ -1,8 +1,5 @@
-# sais
-SAIS - The simpliest artificial intelligence system. It is a simple project, the main function of which is output the name
-of object based on the characteristics which was inputed by user in database before.
-
-The program allows user to input objects and characteristics separately and then put them in line.
+# bookstore
+Bookstore is the test task for Great Pro company. It is a feature-rich web application for managing a list of books.
 
 To install that program, please, do the following.
 

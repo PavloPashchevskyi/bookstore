@@ -1,5 +1,6 @@
 var/cache/
 var/logs/**
-nbproject/
-application/config/options.php
+.idea
+nbproject
+Application/Config/Options.php
 vendor/
