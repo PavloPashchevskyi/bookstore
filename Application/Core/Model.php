@@ -132,7 +132,10 @@ class Model extends DBConnection
         }
 
         try {
-            return $query->execute();
+            $isInserted = $query->execute();
+            if ($isInserted === true) {
+                return $this->calculateLatestID();
+            }
         } catch (\PDOException $exception) {
             exit(
                 'EXCEPTION#'.$exception->getCode().': '.$exception->getMessage().
@@ -234,6 +237,18 @@ class Model extends DBConnection
         $results = $query->fetchAll(\PDO::FETCH_ASSOC);
         $nextid = $results[0]['maxid']+1;
         return $nextid;
+    }
+
+    public function calculateLatestID()
+    {
+        $fieldName = $this->tablePrimaryKey;
+        $sql = 'SELECT MAX('.$fieldName.') AS maxid FROM '.$this->tableName.' ORDER BY '.$fieldName.' DESC LIMIT 1';
+        $query = $this->connection->query($sql);
+        if(!$query) {
+            exit("Unable to execute the query ".$sql."<br>");
+        }
+        $results = $query->fetchAll(\PDO::FETCH_ASSOC);
+        return $results[0]['maxid'];
     }
 
     private function sqlQueryWhereClause($criteria, $operation = 'AND')

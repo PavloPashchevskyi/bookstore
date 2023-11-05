@@ -11,7 +11,7 @@ class CustomRouter implements Routable
         $actionName = (strcasecmp(substr($routesNeeded['routes'][0]['class_method'], -6), 'Action') == 0) ?
             substr($routesNeeded['routes'][0]['class_method'], 0, -6) :
             $routesNeeded['routes'][0]['class_method'];
-        $actionArguments = $routesNeeded[0]['class_method_parameters'];
+        $actionArguments = $routesNeeded['routes'][0]['class_method_parameters'];
         $controllerFullQualifiedName = $routesNeeded['routes'][0]['class_fqn'];
 
         $fqnParts = explode("\\", $controllerFullQualifiedName);
