@@ -17,12 +17,16 @@ class Controller
     protected $get;
     protected $post;
 
+    protected $view;
+
     public function __construct()
     {
         $this->entityManager = new EntityManager();
         $this->request = $_REQUEST;
         $this->get = $_GET;
         $this->post = $_POST;
+
+        $this->view = new \Application\Core\View();
     }
     
     protected function getEntityManager()
